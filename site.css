@@ -14,3 +14,38 @@
 
 /* Experience: sector label and context sit side by side. */
 .experience .experience-context{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:22px;justify-self:stretch;min-width:0}.experience .experience-context>p{display:block;margin:0;font-size:18px;white-space:nowrap}.experience .experience-context>span{margin:0;max-width:240px}@media(max-width:600px){.experience .experience-context{gap:16px}.experience .experience-context>p{font-size:16px}.experience .experience-context>span{max-width:none}}
+
+/* Keep the hero and the page sections on the same grid on wide screens. */
+@media (min-width: 1600px) {
+  :root {
+    --page-gutter: 67.2px;
+    --page-edge: calc((100% - 1600px) / 2 + var(--page-gutter));
+  }
+
+  .wrap {
+    padding-inline: var(--page-gutter);
+  }
+
+  .site-header {
+    padding-inline: var(--page-edge);
+  }
+
+  .hero {
+    min-height: clamp(900px, 100svh, 1080px);
+  }
+
+  .hero-content {
+    margin-inline: var(--page-edge);
+  }
+
+  .hero-photo {
+    width: min(100%, 1600px);
+    margin-inline: auto;
+    overflow: clip;
+    mask-image: linear-gradient(90deg, #000 94%, transparent);
+  }
+
+  .hero-bottom {
+    inset-inline: var(--page-edge);
+  }
+}
